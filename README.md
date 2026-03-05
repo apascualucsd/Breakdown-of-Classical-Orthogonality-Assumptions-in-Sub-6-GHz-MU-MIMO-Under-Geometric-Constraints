@@ -1,0 +1,9 @@
+\section{Updated Problem Statement}
+
+Under what geometric conditions (array aperture, antenna count, and user angular separation) does a sub-6 GHz MU-MIMO channel matrix approach the effective rank collapse characteristic of keyhole channels, and how does this impact Zero-Forcing beamforming performance?
+
+\section{Motivation and Relevance}
+
+This course emphasizes array processing, beamforming, and spatial separability, all of which depend on the array manifold structure and the linear independence of steering vectors. While classical MU-MIMO theory assumes independent and well-conditioned Rayleigh fading channels, enabling spatial multiplexing via linear precoding (ex. Zero Forcing), real deployments often violate these assumptions.
+
+In practical sub-6 GHz systems, finite array aperture, limited antenna count, small user angular separation, and structured propagation can substantially reduce the effective rank of the channel matrix, potentially leading to near rank collapse. To interpret this degradation, this project uses the keyhole channel model as a reference for extreme degree-of-freedom loss. While keyhole effects are not generally representative of terrestrial sub-6 GHz systems, they provide a well-defined example of rank deficiency despite little to no correlation. By comparing realistic geometric channels to this benchmark, the project clarifies when and how classical orthogonality assumptions break down, and quantifies the resulting impact on singular values, effective degrees of freedom, and Zero-Forcing beamforming performance.
