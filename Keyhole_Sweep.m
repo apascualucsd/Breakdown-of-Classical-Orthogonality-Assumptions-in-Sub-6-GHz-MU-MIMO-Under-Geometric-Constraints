@@ -68,3 +68,53 @@ function [R] = ZF_sumrate(H,N0)
 
     R = sum(log2(1+snr));
 end
+
+%% Plot Everything
+
+% Rank Plot
+figure;
+hold on; grid on;
+
+for i = 1:length(M)
+    plot(K, avg_rank_Keyhole(i,:), '-o', 'LineWidth',2);
+end
+
+xlabel('Number of Users (K)');
+ylabel('Average Channel Rank');
+title('Keyhole Channel: Rank vs Number of Users');
+legend('M=8','M=16','M=32','M=64','Location','best');
+set(gca, 'XDir','reverse');
+
+xlim([min(K)-0.5 max(K)+0.5])
+ylim([0 max(avg_rank_Keyhole(:))*1.1])
+
+
+% ZF Sum Rate Plot
+figure;
+hold on; grid on;
+
+for i = 1:length(M)
+    plot(K, real(avg_rate_Keyhole(i,:)), '-o', 'LineWidth',2);
+end
+
+xlabel('Number of Users (K)');
+ylabel('Average ZF Sum-Rate (bits/s/Hz)');
+title('Keyhole Channel: ZF Sum-Rate vs Number of Users');
+legend('M=8','M=16','M=32','M=64','Location','best');
+set(gca, 'XDir','reverse');
+
+% Condition Number Plot
+figure;
+hold on; grid on;
+
+for i = 1:length(M)
+    semilogy(K, avg_cond_Keyhole(i,:), '-o', 'LineWidth',2);
+end
+
+xlabel('Number of Users (K)');
+ylabel('Average Condition Number');
+title('Keyhole Channel: Condition Number vs Number of Users');
+legend('M=8','M=16','M=32','M=64','Location','best');
+set(gca, 'XDir','reverse');
+
+xlim([min(K)-0.5 max(K)+0.5])
